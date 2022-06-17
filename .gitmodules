@@ -1,0 +1,18 @@
+[submodule "home/.config/nvim/pack/plugins/start/tabular"]
+	path = home/.config/nvim/pack/plugins/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "home/.config/nvim/pack/plugins/start/vim-markdown"]
+	path = home/.config/nvim/pack/plugins/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "home/.config/nvim/pack/plugins/start/previm"]
+	path = home/.config/nvim/pack/plugins/start/previm
+	url = https://github.com/previm/previm
+[submodule "home/.config/nvim/pack/plugins/start/open-browser.vim"]
+	path = home/.config/nvim/pack/plugins/start/open-browser.vim
+	url = https://github.com/tyru/open-browser.vim
+[submodule "home/.config/nvim/pack/plugins/start/vim-toml"]
+	path = home/.config/nvim/pack/plugins/start/vim-toml
+	url = https://github.com/cespare/vim-toml.git
+[submodule "home/.local/share/resources/css/github-markdown-css"]
+	path = home/.local/share/resources/css/github-markdown-css
+	url = https://github.com/sindresorhus/github-markdown-css
