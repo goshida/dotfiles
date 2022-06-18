@@ -208,6 +208,7 @@ deploy-dotfiles:
 	ln --backup=simple -sn `pwd`/home/.config/libinput-gestures.conf ~/.config/
 	mkdir -p ~/.config/autostart
 	ln --backup=simple -sn `pwd`/home/.config/autostart/Plank.desktop ~/.config/autostart/
+	ln --backup=simple -sn `pwd`/home/.config/autostart/libinput-gestures.desktop ~/.config/autostart/
 	mkdir -p ~/.local/share
 	ln --backup=simple -sn `pwd`/home/.local/share/themes/ ~/.local/share/
 	ln --backup=simple -sn `pwd`/home/.local/share/resources ~/.local/share/
