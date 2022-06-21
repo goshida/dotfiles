@@ -13,6 +13,7 @@ test -r /usr/bin/aws_completer && complete -C aws_completer aws
 
 eval "$(starship init bash)"
 
+alias sudo='sudo -v && sudo '
 
 alias diff-ii='diff -E -b -w'
 
