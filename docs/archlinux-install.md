@@ -104,6 +104,8 @@ vi /etc/hosts
 mkinitcpio -P
 
 passwd
+
+systemctl enable dhcpcd.service
 ```
 
 tools
@@ -162,9 +164,11 @@ chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
 
-echo '' >> /etc/fstab
-echo '# swap' >> /etc/fstab
-echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+cat >> /etc/fstab << __EOF__
+
+# swap
+/swapfile none swap defaults 0 0
+__EOF__
 
 sysctl vm.swappiness=10
 echo 'vm.swappiness=10' >> /etc/sysctl.d/99-sysctl.conf
@@ -181,7 +185,18 @@ vi /etc/mkinitcpio.conf
 -MODULES=()
 +MODULES=(amdgpu)
 -----
+
 mkinitcpio -p linux
+```
+
+sudo
+
+```console
+visudo
+-----
+-# %wheel ALL=*ALL:ALL) ALL
+-%wheel ALL=*ALL:ALL) ALL
+-----
 ```
 
 user
@@ -189,19 +204,17 @@ user
 ```console
 useradd -G wheel -s /bin/bash -m goshida
 passwd goshida
-
-ssh-keygen -t rsa -b 4096 -C "goshida"
-chmod 600 ${HOME}/.ssh/id_rsa
 ```
 
 yay
 
 ```console
 su - goshida
-mkdir ~/tmp && cd ~/tmp
-git clone https://aur.archlinux.org/yay.git
-cd ~/tmp/yay
+git clone https://aur.archlinux.org/yay.git ~/yay
+cd ~/yay/
 makepkg -si
+cd ~/
+rm -rf ~/yay/
 ```
 
 reboot
