@@ -22,6 +22,8 @@
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="11"/>
+        <value type="int" value="15"/>
+        <value type="int" value="13"/>
         <value type="int" value="12"/>
       </property>
       <property name="span-monitors" type="bool" value="false"/>
@@ -67,6 +69,7 @@
         <value type="string" value="orage"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="task manager"/>
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
@@ -77,7 +80,7 @@
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chrome.instance104154;chrome.instance1286;chrome.instance1611;chrome.instance174681;chrome.instance1781;chrome.instance41813;firefox.instance136531;firefox.instance213716"/>
+      <property name="mpris-players" type="string" value="chrome.instance104154;chrome.instance1286;chrome.instance1611;chrome.instance174681;chrome.instance1781;chrome.instance41813;chromium.instance1007;firefox.instance136531;firefox.instance213716"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-10" type="string" value="notification-plugin"/>
@@ -87,6 +90,8 @@
     <property name="plugin-12" type="string" value="clock">
       <property name="timezone" type="string" value="Asia/Tokyo"/>
       <property name="mode" type="uint" value="2"/>
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
+      <property name="digital-format" type="string" value="%Y/%m/%d(%a) %H:%M"/>
     </property>
     <property name="plugin-2" type="string" value="separator">
       <property name="style" type="uint" value="2"/>
@@ -109,6 +114,18 @@
     </property>
     <property name="plugin-7" type="string" value="separator">
       <property name="style" type="uint" value="2"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-15" type="string" value="systemload">
+      <property name="cpu" type="empty">
+        <property name="enabled" type="bool" value="true"/>
+      </property>
+      <property name="uptime" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
     </property>
   </property>
 </channel>
