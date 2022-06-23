@@ -52,10 +52,7 @@ bluetooth-audio:
 		pulseaudio-alsa \
 		pulseaudio-bluetooth
 
-ssh:
-	sudo pacman -S \
-		openssh
-	sudo systemctl start sshd
+sshd:
 	sudo systemctl enable sshd
 
 gui:
@@ -158,7 +155,7 @@ development-tools:
 		pyenv \
 		packer
 	yay -S \
-		aws-cli-v2 \
+		aws-cli-v2-bin \
 		aws-sam-cli \
 		git-secrets
 
@@ -173,14 +170,14 @@ asdf:
 	yay -S \
 		asdf-vm
 	. /opt/asdf-vm/asdf.sh
-	asdf plugin install kubectl
+	asdf plugin add kubectl
 
 wps-office:
 	yay -S \
 		wps-office \
 		ttf-wps-fonts
 
-all-install: base network japanese audio bluetooth gui rdp vpn python cli-tools gui-tools development-tools docker asdf
+all-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools development-tools docker asdf
 wsl-install: base cli-tools development-tools docker asdf
 
 dropbox:
@@ -195,7 +192,6 @@ deploy-dotfiles:
 	ln --backup=simple -sn `pwd`/home/.bashrc ~/
 	ln --backup=simple -sn `pwd`/home/.profile ~/
 	ln --backup=simple -sn `pwd`/home/.xprofile ~/
-	ln --backup=simple -sn `pwd`/home/.gnupg ~/
 	ln --backup=simple -sn `pwd`/home/.Xmodmap ~/
 	mkdir -p ~/.config
 	ln --backup=simple -sn `pwd`/home/.config/nvim ~/.config/
