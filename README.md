@@ -12,7 +12,7 @@
 git clone --recursive https://github.com/goshida/dotfiles.git
 cd dotfiles
 
-make all-install
+make deploy-install
 make deploy-dotfiles
 ```
 

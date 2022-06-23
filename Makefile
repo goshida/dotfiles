@@ -177,7 +177,7 @@ wps-office:
 		wps-office \
 		ttf-wps-fonts
 
-all-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools development-tools docker asdf
+desktop-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools development-tools docker asdf
 wsl-install: base cli-tools development-tools docker asdf
 
 dropbox:
