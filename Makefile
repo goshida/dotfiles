@@ -27,7 +27,8 @@ japanese:
 		noto-fonts-cjk \
 		noto-fonts-emoji \
 		adobe-source-han-sans-otc-fonts \
-		adobe-source-han-serif-otc-fonts \
+		adobe-source-han-serif-otc-fonts
+	yay -S \
 		ttf-hackgen-nerd
 
 audio:
@@ -101,11 +102,11 @@ vpn:
 cli-tools:
 	sudo pacman -S \
 		pacman-contrib \
-		gptdisk \
+		gptfdisk \
 		exfat-utils \
+		nfs-utils \
 		lsof \
 		zip \
-		nkf \
 		unzip \
 		p7zip \
 		unarchiver \
@@ -117,7 +118,8 @@ cli-tools:
 		nethogs \
 		screenfetch
 	yay -S \
-		downgrade
+		downgrade \
+		nkf
 
 gui-tools:
 	sudo pacman -S \
@@ -129,8 +131,7 @@ gui-tools:
 		vlc
 	yay -S \
 		xzoom \
-		archlinux-artwork \
-		cryptomator
+		archlinux-artwork
 
 development-tools:
 	sudo pacman -S \
