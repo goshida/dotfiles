@@ -170,7 +170,7 @@ docker:
 asdf:
 	yay -S \
 		asdf-vm
-	. /opt/asdf-vm/asdf.sh
+	source /opt/asdf-vm/asdf.sh
 	asdf plugin add kubectl
 
 wps-office:
