@@ -10,7 +10,7 @@ https://wiki.archlinux.org/index.php/Installation_guide
 sudo dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 ```
 
-## command
+## install script
 
 keyboard layout ( jis layout )
 
@@ -25,7 +25,7 @@ check network ( wifi )
 ip link
 rfkill list
 rfkill unblock 0
-wifi-menu wlp0s0
+wifi-menu ${_DEVICENAME}
 ```
 
 system clock
@@ -37,10 +37,12 @@ timedatectl set-ntp true
 disk partitioning ( UEFI + GPT )
 
 ```console
+# sample
+#  sda1 : /boot : ef00 ( EFI system partition )
+#  sda2 : / : 8300 ( Linux filesystem )
+#  sda3 : /home : 8300 ( Linux filesystem )
+
 gdisk /dev/sda
-# sda1 : /boot : ef00 ( EFI system partition )
-# sda2 : / : 8300 ( Linux filesystem )
-# sda3 : /home : 8300 ( Linux filesystem )
 
 mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
@@ -71,7 +73,8 @@ pacstrap /mnt \
   linux-firmware \
   dhcpcd \
   vi \
-  sudo
+  sudo \
+  git
 ```
 
 fstab
@@ -90,33 +93,36 @@ etcetera
 
 ```console
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 hwclock --systohc --utc
 
 vi /etc/locale.gen
-# en_US.UTF-8 UTF-8
-# ja_JP.UTF-8 UTF-8
+-----
+-# en_US.UTF-8 UTF-8
++en_US.UTF-8 UTF-8
+-----
+-# ja_JP.UTF-8 UTF-8
++ja_JP.UTF-8 UTF-8
+-----
+
 locale-gen
+
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 
-echo 'hoge' > /etc/hostname
+echo ${_HOSTNAME} > /etc/hostname
+
 vi /etc/hosts
+-----
+127.0.0.1 localhost
+::1       localhost
+127.0.0.1 ${_HOSTNAME}.localdomain ${_HOSTNAME}
+-----
 
 mkinitcpio -P
 
 passwd
 
 systemctl enable dhcpcd.service
-```
-
-tools
-
-```console
-pacman -S \
-  git \
-  screen
-
-EDITOR=vi visudo
-# wheel
 ```
 
 microcode
@@ -138,13 +144,13 @@ boot loader
 ```console
 bootctl install
 
-cat > /boot/loader/loader.conf << __EOF__
+cat >> /boot/loader/loader.conf << __EOF__
 default arch
 timeout 5
 editor no
 __EOF__
 
-cat > /boot/loader/entries/arch.conf << __EOF__
+cat >> /boot/loader/entries/arch.conf << __EOF__
 title   Arch Linux
 linux /vmlinuz-linux
 initrd /amd-ucode.img
@@ -152,11 +158,11 @@ initrd /initramfs-linux.img
 options root=PARTUUID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" rw noefi
 __EOF__
 
-blkid /dev/<root-partition>
+blkid /dev/[root-partition] >> /boot/loader/entries/arch.conf
 vi /boot/loader/entries/arch.conf
 ```
 
-swap file ( 8G )
+swap file
 
 ```console
 dd if=/dev/zero of=/swapfile bs=1M count=8192
@@ -192,24 +198,24 @@ mkinitcpio -p linux
 sudo
 
 ```console
-visudo
+EDITOR=vi visudo
 -----
 -# %wheel ALL=*ALL:ALL) ALL
--%wheel ALL=*ALL:ALL) ALL
++%wheel ALL=*ALL:ALL) ALL
 -----
 ```
 
 user
 
 ```console
-useradd -G wheel -s /bin/bash -m goshida
-passwd goshida
+useradd -G wheel -s /bin/bash -m ${_USERNAME}
+passwd ${_USERNAME}
 ```
 
 yay
 
 ```console
-su - goshida
+su - ${_USERNAME}
 git clone https://aur.archlinux.org/yay.git ~/yay
 cd ~/yay/
 makepkg -si
