@@ -17,7 +17,8 @@ set list
 set listchars=tab:^-,trail:-,nbsp:%
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
 set fileformats=unix,mac,dos
 
 set conceallevel=0
