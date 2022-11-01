@@ -21,9 +21,15 @@ set fileencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
 set fileformats=unix,mac,dos
 
-set conceallevel=0
-
 set scrolloff=5
+
+set conceallevel=0
+set concealcursor=
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_alto = 1
 
 let g:vim_markdown_folding_disabled = 1
 let g:previm_enable_realtime = 0
