@@ -119,7 +119,8 @@ cli-tools:
 		screenfetch
 	yay -S \
 		downgrade \
-		nkf
+		nkf \
+		perl-image-exiftool
 
 gui-tools:
 	sudo pacman -S \
