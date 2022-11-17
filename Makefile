@@ -179,7 +179,10 @@ wps-office:
 		wps-office \
 		ttf-wps-fonts
 
-desktop-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools development-tools docker asdf
+additional-settings:
+	localectl --no-convert set-x11-keymap us pc104 "" ctrl:nocaps
+
+desktop-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools development-tools docker asdf additional-settings
 wsl-install: base cli-tools development-tools docker asdf
 
 dropbox:
@@ -194,7 +197,6 @@ deploy-dotfiles:
 	ln --backup=simple -sn `pwd`/home/.bashrc ~/
 	ln --backup=simple -sn `pwd`/home/.profile ~/
 	ln --backup=simple -sn `pwd`/home/.xprofile ~/
-	ln --backup=simple -sn `pwd`/home/.Xmodmap ~/
 	mkdir -p ~/.config
 	ln --backup=simple -sn `pwd`/home/.config/nvim ~/.config/
 	ln --backup=simple -sn `pwd`/home/.config/screen ~/.config/
