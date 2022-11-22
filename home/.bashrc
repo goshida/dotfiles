@@ -19,3 +19,7 @@ alias diff-ii='diff -E -b -w'
 
 alias mount-nfs='sudo mount -t nfs -o user,noauto,rw 192.168.3.25:/volume1/share /mnt/nfs/'
 
+function hugo-post() {
+  hugo new posts/`date '+%Y/%m/%d'`/$1/index.md
+}
+
