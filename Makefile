@@ -29,7 +29,7 @@ japanese:
 		adobe-source-han-sans-otc-fonts \
 		adobe-source-han-serif-otc-fonts
 	yay -S \
-		ttf-hackgen-nerd
+		ttf-hackgen
 
 audio:
 	sudo pacman -S \
@@ -83,6 +83,7 @@ browser:
 		firefox
 	yay -S \
 		google-chrome \
+		vivaldi \
 		slack-desktop
 
 rdp:
@@ -157,7 +158,7 @@ development-tools:
 		pyenv \
 		packer
 	yay -S \
-		aws-cli-v2-bin \
+		aws-cli-v2 \
 		aws-sam-cli \
 		git-secrets
 
@@ -182,7 +183,7 @@ wps-office:
 additional-settings:
 	localectl --no-convert set-x11-keymap us pc104 "" ctrl:nocaps
 
-desktop-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools development-tools docker asdf additional-settings
+desktop-install: base network japanese audio bluetooth gui rdp vpn cli-tools gui-tools browser development-tools docker additional-settings
 wsl-install: base cli-tools development-tools docker asdf
 
 dropbox:

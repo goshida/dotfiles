@@ -7,25 +7,34 @@ https://wiki.archlinux.org/index.php/Installation_guide
 ## preparing installatin media
 
 ```console
+lsblk
+
 sudo dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 ```
 
 ## install script
 
-keyboard layout ( jis layout )
+Note: replace ${_VARIABLE} as appropriate value for environment
+
+keyboard layout
 
 ```console
 ls /usr/share/kbd/keymaps/**/*.map.gz
+
+# when using JIS keyboard ( US is default )
 loadkeys jp106
 ```
 
 check network ( wifi )
 
 ```console
-ip link
 rfkill list
-rfkill unblock 0
-wifi-menu ${_DEVICENAME}
+
+# when Wi-Fi device is soft-blocked
+rfkill unblock ${WIFI_DEVICE_ID}
+
+ip link
+wifi-menu ${_NETWORK_DEVICENAME}
 ```
 
 system clock
@@ -37,12 +46,16 @@ timedatectl set-ntp true
 disk partitioning ( UEFI + GPT )
 
 ```console
-# sample
-#  sda1 : /boot : ef00 ( EFI system partition )
-#  sda2 : / : 8300 ( Linux filesystem )
-#  sda3 : /home : 8300 ( Linux filesystem )
+# e.g.
+#  partition | mount point | filesystem
+#  /dev/sda1 | /boot       | ef00 ( EFI system partition )
+#  /dev/sda2 | /           | 8300 ( Linux filesystem )
+#  /dev/sda3 | /home       | 8300 ( Linux filesystem )
 
-gdisk /dev/sda
+sgdisk  -z /dev/sda
+sgdisk -n 1::+512M -t 1:ef00 -c 1:"EFI system partition ( /boot )" /dev/sda
+sgdisk -n 2::+64G -t 2:8300 -c 2:"Linux filesystem ( / )" /dev/sda
+sgdisk -n 3:: -t 2:8300 -c 3:"Linux filesystem ( /home )" /dev/sda
 
 mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
@@ -59,7 +72,9 @@ mount /dev/sda3 /mnt/home
 mirrorlist
 
 ```console
-vi /etc/pacman.d/mirrorlist
+cp -pi /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
+
+reflector --country Japan --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
 pacstrap
@@ -92,6 +107,7 @@ arch-chroot /mnt
 etcetera
 
 ```console
+# when using computer in Japan
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 hwclock --systohc --utc
@@ -128,11 +144,13 @@ systemctl enable dhcpcd.service
 microcode
 
 ```console
+# when using intel CPU
 pacman -S \
   intel-ucode \
   xf86-video-intel \
   mesa
 
+# when using AMD CPU
 pacman -S \
   amd-ucode \
   xf86-video-amdgpu \
@@ -145,21 +163,27 @@ boot loader
 bootctl install
 
 cat >> /boot/loader/loader.conf << __EOF__
-default arch
+default archlinux
 timeout 5
 editor no
 __EOF__
 
-cat >> /boot/loader/entries/arch.conf << __EOF__
+cat >> /boot/loader/entries/archlinux.conf << __EOF__
 title   Arch Linux
 linux /vmlinuz-linux
 initrd /amd-ucode.img
 initrd /initramfs-linux.img
-options root=PARTUUID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" rw noefi
+options root=PARTUUID="xxxx" rw noefi
 __EOF__
 
-blkid /dev/[root-partition] >> /boot/loader/entries/arch.conf
-vi /boot/loader/entries/arch.conf
+BLKID_ROOT=`blkid --match-tag PARTUUID ${_ROOT_PARTION} | awk -F\" '{print $2}'`
+sed -i -e 's/xxxx/${BLKID_ROOT}/' /boot/loader/entries/archlinux.conf
+cat /boot/loader/entries/archlinux.conf
+
+cp -i /boot/loader/entries/archlinux.conf /boot/loader/entries/archlinux-lts.conf
+sed -i -e 's/Linux/Linux (LTS)/' /boot/loader/entries/archlinux-lts.conf
+sed -i -e 's/-linux/-linux-lts/g' /boot/loader/entries/archlinux-lts.conf
+diff -u /boot/loader/entries/archlinux.conf /boot/loader/entries/archlinux-lts.conf
 ```
 
 swap file
@@ -184,9 +208,12 @@ KMS
 
 ```console
 vi /etc/mkinitcpio.conf
+# when using intel CPU
 -----
 -MODULES=()
 +MODULES=(i915)
+-----
+# When using AMD CPU
 -----
 -MODULES=()
 +MODULES=(amdgpu)
@@ -216,11 +243,14 @@ yay
 
 ```console
 su - ${_USERNAME}
+
 git clone https://aur.archlinux.org/yay.git ~/yay
 cd ~/yay/
 makepkg -si
 cd ~/
 rm -rf ~/yay/
+
+exit
 ```
 
 reboot
