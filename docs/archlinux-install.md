@@ -72,9 +72,7 @@ mount /dev/sda3 /mnt/home
 mirrorlist
 
 ```console
-cp -pi /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
-
-reflector --country Japan --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+reflector --country Japan --protocol https --age 24 --completion-percent 95 --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
 pacstrap
@@ -107,7 +105,6 @@ arch-chroot /mnt
 etcetera
 
 ```console
-# when using computer in Japan
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 hwclock --systohc --utc
@@ -139,6 +136,16 @@ mkinitcpio -P
 passwd
 
 systemctl enable dhcpcd.service
+```
+
+pacman
+
+```console
+cp -pi /etc/pacman.conf /etc/pacman.conf.orig
+
+sed -i -e 's/^#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf
+sed -i -e 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 ```
 
 microcode
