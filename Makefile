@@ -130,7 +130,8 @@ gui-tools:
 		peek \
 		code \
 		galculator \
-		vlc
+		vlc \
+		shutter
 	yay -S \
 		xzoom \
 		archlinux-artwork
