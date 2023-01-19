@@ -52,6 +52,8 @@ disk partitioning ( UEFI + GPT )
 #  /dev/sda2 | /           | 8300 ( Linux filesystem )
 #  /dev/sda3 | /home       | 8300 ( Linux filesystem )
 
+lsblk
+
 sgdisk  -z /dev/sda
 sgdisk -n 1::+512M -t 1:ef00 -c 1:"EFI system partition ( /boot )" /dev/sda
 sgdisk -n 2::+64G -t 2:8300 -c 2:"Linux filesystem ( / )" /dev/sda
@@ -141,16 +143,19 @@ systemctl enable dhcpcd.service
 pacman
 
 ```console
-cp -pi /etc/pacman.conf /etc/pacman.conf.orig
+cp -pi /etc/pacman.conf /etc/pacman.conf.`date +%Y%m%d`
 
+sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 sed -i -e 's/^#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf
 sed -i -e 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 ```
 
 microcode
 
 ```console
+lscpu
+lspci -k | grep -A 2 -E "(VGA|3D)"
+
 # when using intel CPU
 pacman -S \
   intel-ucode \
@@ -184,7 +189,7 @@ options root=PARTUUID="xxxx" rw noefi
 __EOF__
 
 BLKID_ROOT=`blkid --match-tag PARTUUID ${_ROOT_PARTION} | awk -F\" '{print $2}'`
-sed -i -e 's/xxxx/${BLKID_ROOT}/' /boot/loader/entries/archlinux.conf
+sed -i -e "s/xxxx/${BLKID_ROOT}/" /boot/loader/entries/archlinux.conf
 cat /boot/loader/entries/archlinux.conf
 
 cp -i /boot/loader/entries/archlinux.conf /boot/loader/entries/archlinux-lts.conf
@@ -202,9 +207,9 @@ mkswap /swapfile
 swapon /swapfile
 
 cat >> /etc/fstab << __EOF__
-
 # swap
 /swapfile none swap defaults 0 0
+
 __EOF__
 
 sysctl vm.swappiness=10
