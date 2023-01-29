@@ -202,6 +202,7 @@ deploy-dotfiles:
 	mkdir -p ~/.config
 	ln --backup=simple -sn `pwd`/home/.config/nvim ~/.config/
 	ln --backup=simple -sn `pwd`/home/.config/screen ~/.config/
+	ln --backup=simple -sn `pwd`/home/.config/git ~/.config/
 	ln --backup=simple -sn `pwd`/home/.config/starship ~/.config/
 	ln --backup=simple -sn `pwd`/home/.config/xfce4 ~/.config/
 	ln --backup=simple -sn `pwd`/home/.config/fcitx ~/.config/
