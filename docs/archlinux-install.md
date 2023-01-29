@@ -1,20 +1,35 @@
 # note
 
+Note: replace ${_VARIABLE} as appropriate value
+
+
 ## base
 
 https://wiki.archlinux.org/index.php/Installation_guide
 
+
 ## preparing installatin media
+
+download image and verify signature
+
+```console
+cd ~/Downloads/
+curl -O http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/iso/latest/archlinux-x86_64.iso
+curl -O http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/iso/latest/archlinux-x86_64.iso.sig
+
+gpg --keyserver-options auto-key-retrieve --verify archlinux-x86_64.iso.sig
+# https://archlinux.org/people/developers/
+```
+
+write image to media
 
 ```console
 lsblk
-
-sudo dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
+sudo dd bs=4M if=~/Downloads/archlinux-x86_64.iso of=/dev/${_INSTALL_MEDIA} status=progress oflag=sync
 ```
 
-## install script
 
-Note: replace ${_VARIABLE} as appropriate value for environment
+## install script
 
 keyboard layout
 
