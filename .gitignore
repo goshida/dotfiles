@@ -5,3 +5,9 @@
 /home/.config/fcitx/dbus/*
 /home/.config/fcitx/clipboard/*
 
+/tmp/*
+!/tmp/.gitkeep
+
+/log/*
+!/log/.gitkeep
+

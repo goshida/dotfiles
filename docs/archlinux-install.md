@@ -266,20 +266,6 @@ useradd -G wheel -s /bin/bash -m ${_USERNAME}
 passwd ${_USERNAME}
 ```
 
-yay
-
-```console
-su - ${_USERNAME}
-
-git clone https://aur.archlinux.org/yay.git ~/yay
-cd ~/yay/
-makepkg -si
-cd ~/
-rm -rf ~/yay/
-
-exit
-```
-
 reboot
 
 ```console

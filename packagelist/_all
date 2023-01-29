@@ -1,0 +1,151 @@
+# base
+core/vi
+core/sudo
+core/openssh
+core/man-db
+core/man-pages
+extra/git
+community/neovim
+community/screen
+
+# network
+extra/networkmanager
+extra/network-manager-applet
+
+# japanese
+fcitx-im
+community/fcitx-mozc
+community/fcitx-configtool
+
+# fonts
+community/otf-ipafont
+extra/noto-fonts
+extra/noto-fonts-cjk
+extra/noto-fonts-emoji
+community/adobe-source-han-sans-otc-fonts
+community/adobe-source-han-serif-otc-fonts
+aur/ttf-hackgen
+
+# audio
+extra/pulseaudio
+extra/pavucontrol
+extra/alsa-utils
+
+# bluetooth
+extra/bluez
+extra/bluez-libs
+extra/bluez-utils
+community/blueman
+aur/bluez-firmware
+
+# bluetooth-audio
+extra/pulseaudio-alsa
+extra/pulseaudio-bluetooth
+
+# gui
+extra/xorg-server
+xorg-apps
+extra/xorg-xinit
+xfce4
+xfce4-goodies
+extra/xfce4-notifyd
+extra/xfce4-clipman-plugin
+community/xarchiver
+extra/lightdm
+extra/lightdm-gtk-greeter
+aur/gamin
+aur/libinput-gestures
+aur/nordic-theme
+aur/tela-icon-theme
+
+# browser
+extra/firefox
+aur/google-chrome
+community/vivaldi
+aur/slack-desktop
+
+# rdp
+community/remmina
+community/freerdp
+
+# vpn
+extra/networkmanager-openvpn
+community/xl2tpd
+aur/ike-scan
+aur/libreswan
+community/networkmanager-l2tp
+aur/networkmanager-libreswan
+
+# cli-tools
+community/pacman-contrib
+extra/gptfdisk
+community/exfat-utils
+core/nfs-utils
+extra/lsof
+extra/zip
+extra/unzip
+extra/p7zip
+community/unarchiver
+extra/tree
+community/colordiff
+extra/bind
+community/pwgen
+community/iftop
+community/nethogs
+community/screenfetch
+aur/downgrade
+aur/nkf
+extra/perl-image-exiftool
+
+# gui-tools
+community/plank
+community/xdotool
+community/peek
+community/code
+community/galculator
+extra/vlc
+community/shutter
+community/wmctrl
+aur/xzoom
+aur/archlinux-artwork
+
+# development-tools
+core/inetutils
+extra/rsync
+core/cronie
+community/jq
+community/yq
+extra/whois
+core/traceroute
+extra/gnu-netcat
+extra/tcpdump
+community/wireshark-cli
+community/wireshark-qt
+core/curl
+extra/wget
+community/starship
+extra/bash-completion
+core/python
+extra/python-pip
+community/pyenv
+community/packer
+community/aws-cli-v2
+community/python-cfn-lint
+aur/aws-sam-cli
+aur/git-secrets
+
+# docker
+community/docker
+community/docker-compose
+
+# asdf
+aur/asdf-vm
+
+# wps-office
+aur/wps-office
+aur/ttf-wps-fonts
+
+# dropbox
+aur/dropbox
+aur/thunar-dropbox
+

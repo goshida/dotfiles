@@ -12,7 +12,8 @@
 git clone --recursive https://github.com/goshida/dotfiles.git
 cd dotfiles
 
-make desktop-install
+make setup-desktop
+
 make deploy-dotfiles
 ```
 
