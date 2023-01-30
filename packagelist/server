@@ -1,0 +1,24 @@
+# base
+core/vi
+core/sudo
+core/openssh
+core/man-db
+core/man-pages
+extra/git
+community/neovim
+community/screen
+
+# network
+extra/networkmanager
+
+# japanese
+fcitx5-im
+community/fcitx5-mozc
+
+# cli-tools
+community/pacman-contrib
+extra/bash-completion
+community/starship
+core/inetutils
+core/curl
+
