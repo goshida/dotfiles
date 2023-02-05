@@ -8,10 +8,6 @@ extra/git
 community/neovim
 community/screen
 
-# network
-extra/networkmanager
-extra/network-manager-applet
-
 # japanese
 fcitx-im
 community/fcitx-mozc
@@ -50,7 +46,7 @@ xfce4
 xfce4-goodies
 extra/xfce4-notifyd
 extra/xfce4-clipman-plugin
-community/xarchiver
+extra/network-manager-applet
 extra/lightdm
 extra/lightdm-gtk-greeter
 aur/gamin
@@ -99,6 +95,7 @@ extra/perl-image-exiftool
 
 # gui-tools
 community/plank
+community/xarchiver
 community/xdotool
 community/peek
 community/code

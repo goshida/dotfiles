@@ -50,6 +50,11 @@ rfkill unblock ${WIFI_DEVICE_ID}
 
 ip link
 wifi-menu ${_NETWORK_DEVICENAME}
+
+iwctl device list
+iwctl station ${_NETWORK_DEVICENAME} scan
+iwctl station ${_NETWORK_DEVICENAME} get-networks
+iwctl station ${_NETWORK_DEVICENAME} connect ${_SSID}
 ```
 
 system clock
@@ -101,9 +106,9 @@ pacstrap /mnt \
   linux \
   linux-lts \
   linux-firmware \
-  dhcpcd \
   vi \
   sudo \
+  networkmanager \
   git
 ```
 
@@ -152,7 +157,7 @@ mkinitcpio -P
 
 passwd
 
-systemctl enable dhcpcd.service
+systemctl enable NetworkManager.service
 ```
 
 pacman
