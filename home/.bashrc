@@ -8,9 +8,9 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-test -r /usr/share/git/completion/git-completion.bash && . /usr/share/git/completion/git-completion.bash
 test -r /usr/share/bash-completion/completions/nmcli && . /usr/share/bash-completion/completions/nmcli
-test -r /usr/bin/aws_completer && complete -C aws_completer aws
+test -r /usr/share/bash-completion/completions/git && . /usr/share/bash-completion/completions/git
+test -r /usr/share/bash-completion/completions/aws && . /usr/share/bash-completion/completions/aws
 
 eval "$(starship init bash)"
 
