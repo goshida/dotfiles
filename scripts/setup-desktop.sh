@@ -2,11 +2,9 @@
 
 set -eux
 
-# network
-sudo systemctl enable NetworkManager.service
+_DOTFILES_ROOT=$( cd $( dirname $0 )/../ && pwd )
 
 # bluetooth
-sudo systemctl start bluetooth
 sudo systemctl enable bluetooth
 
 # gui
