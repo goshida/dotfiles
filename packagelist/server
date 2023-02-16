@@ -9,7 +9,8 @@ community/neovim
 community/screen
 
 # network
-extra/networkmanager
+extra/wireguard-tools
+extra/nftables
 
 # japanese
 fcitx5-im
@@ -21,4 +22,5 @@ extra/bash-completion
 community/starship
 core/inetutils
 core/curl
+extra/qrencode
 
