@@ -10,6 +10,11 @@ _SETUP_TIMESTAMP=`date +%Y%m%d-%H%M%S`
 sudo cp -p /etc/sudoers /etc/sudoers.${_SETUP_TIMESTAMP}
 sudo sh -c "cat ${_DOTFILES_ROOT}/etc/sudoers | EDITOR=tee visudo"
 
+# firewall
+sudo cp -p /etc/nftables.conf /etc/nftables.conf.${_SETUP_TIMESTAMP}
+sudo install -o root -g root -m 644 -D ${_DOTFILES_ROOT}/etc/nftables.conf /etc/nftables.conf
+sudo systemctl enable nftables
+
 # gui
 sudo systemctl enable lightdm.service
 cp --backup=simple /etc/X11/xinit/xinitrc /home/${USER}/.xinitrc

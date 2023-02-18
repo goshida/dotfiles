@@ -8,6 +8,9 @@ extra/git
 community/neovim
 community/screen
 
+# network
+extra/nftables
+
 # japanese
 fcitx-im
 community/fcitx-mozc
@@ -92,6 +95,7 @@ community/screenfetch
 aur/downgrade
 aur/nkf
 extra/perl-image-exiftool
+extra/bash-completion
 
 # gui-tools
 community/plank
@@ -121,7 +125,6 @@ community/wireshark-qt
 core/curl
 extra/wget
 community/starship
-extra/bash-completion
 core/python
 extra/python-pip
 community/pyenv
