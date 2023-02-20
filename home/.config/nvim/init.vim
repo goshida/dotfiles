@@ -21,6 +21,8 @@ set fileencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
 set fileformats=unix,mac,dos
 
+set mouse=
+
 set scrolloff=5
 
 set conceallevel=0
