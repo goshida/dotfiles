@@ -10,6 +10,7 @@ PS1='[\u@\h \W]\$ '
 
 test -r /usr/share/bash-completion/completions/nmcli && . /usr/share/bash-completion/completions/nmcli
 test -r /usr/share/bash-completion/completions/git && . /usr/share/bash-completion/completions/git
+test -r /usr/share/bash-completion/completions/gh && . /usr/share/bash-completion/completions/gh
 test -r /usr/share/bash-completion/completions/aws && . /usr/share/bash-completion/completions/aws
 
 eval "$(starship init bash)"

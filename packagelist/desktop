@@ -96,6 +96,7 @@ aur/downgrade
 aur/nkf
 extra/perl-image-exiftool
 extra/bash-completion
+community/github-cli
 
 # gui-tools
 community/plank
