@@ -20,3 +20,5 @@ alias sudo='sudo -v && sudo'
 alias diff='diff --color=auto'
 alias diff-ii='diff --color=auto -E -b -w'
 
+alias grep='grep --color=auto'
+
