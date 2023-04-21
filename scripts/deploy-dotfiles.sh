@@ -26,6 +26,7 @@ mkdir -p ~/.config/autostart
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/autostart/Plank.desktop ~/.config/autostart/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/autostart/libinput-gestures.desktop ~/.config/autostart/
 
+mkdir -p ~/.local/bin
 mkdir -p ~/.local/share
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.local/share/resources ~/.local/share/
 

@@ -15,3 +15,5 @@ if [ -n "$XDG_CONFIG_HOME" ] && [ -r "$XDG_CONFIG_HOME/locale.conf" ]; then
   . "$XDG_CONFIG_HOME/locale.conf"
 fi
 
+export PATH=$HOME/.local/bin:$PATH
+
