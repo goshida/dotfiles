@@ -20,7 +20,3 @@ alias sudo='sudo -v && sudo'
 alias diff='diff --color=auto'
 alias diff-ii='diff --color=auto -E -b -w'
 
-function hugo-post() {
-  hugo new posts/`date '+%Y/%m/%d'`/$1/index.md
-}
-
