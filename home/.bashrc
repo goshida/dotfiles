@@ -22,3 +22,7 @@ alias diff-ii='diff --color=auto -E -b -w'
 
 alias grep='grep --color=auto'
 
+alias cd-gitroot='cd $(git rev-parse --show-toplevel)'
+
+alias open='xdg-open'
+
