@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+w=1280
+h=960
+
+id=`xdotool getwindowfocus`
+
+xdotool windowsize $id $w %h
+xdotool windowfocus $id
