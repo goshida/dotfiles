@@ -23,4 +23,5 @@ community/starship
 core/inetutils
 core/curl
 extra/qrencode
+extra/screenfetch
 
