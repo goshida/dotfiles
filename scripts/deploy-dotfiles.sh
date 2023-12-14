@@ -17,6 +17,7 @@ ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/starship ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/xfce4 ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/fcitx ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/plank ~/.config/
+ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/fontconfig ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/libinput-gestures.conf ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/locale.conf ~/.config/
 
