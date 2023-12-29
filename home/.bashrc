@@ -26,3 +26,5 @@ alias cd-gitroot='cd $(git rev-parse --show-toplevel)'
 
 alias open='xdg-open'
 
+alias echo-path='echo $PATH | tr ":" "\n" | sort'
+
