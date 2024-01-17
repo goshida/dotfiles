@@ -1,0 +1,138 @@
+#!/bin/bash
+
+set -eu
+
+show_help() {
+    cat <<EOF
+Usage: $0 [OPTIONS]
+
+This script is a wrapper for the scanimage command at Canon CanoScan LiDE400.
+
+Options:
+  --device, -d DEVICE     Set the scan device. [Required]
+  --output-file FILE      Set the output file name. [Required]
+  --format FORMAT         Set the output format (pnm, tiff, png, jpeg, pdf). [jpeg]
+  --resolution DPI        Set the scan resolution in dots per inch (auto, 75, 150, 300, 600, 1200, 2400, 4800). [300]
+  --size, -s SIZE         Set the scan size (a4, a5, b5, hagaki, hagaki2). [a4]
+  --progress              Show progress during the scan.
+  --list-devices, -L      List available scan devices.
+  --help, -h              Show this help message.
+
+Example:
+  $0 --device 'your_device_name' --output-file output.jpeg --resolution 300 --size a4 --progress
+EOF
+}
+
+list_devices() {
+    echo "Available scan devices:"
+    scanimage -L
+}
+
+if ! command -v scanimage > /dev/null; then
+    echo "Error: scanimage command not found. Please install SANE."
+    exit 1
+fi
+
+# default
+device=""
+output_file=""
+format="jpeg"
+resolution="300"
+size="a4"
+progress=""
+
+# parse options
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --device|-d)
+            device="$2";
+            shift ;;
+        --output-file)
+            output_file="$2";
+            shift ;;
+        --format)
+            case $2 in
+                pnm|tiff|png|jpeg|pdf) format="$2" ;;
+                *) echo "Error: Unsupported format. Supported formats are: pnm, tiff, png, jpeg, pdf."; exit 1 ;;
+            esac
+            shift
+            ;;
+        --resolution)
+            case $2 in
+                auto|75|150|300|600|1200|2400|4800) resolution="$2" ;;
+                *) echo "Error: Unsupported DPI. Supported DPI values are: auto, 75, 150, 300, 600, 1200, 2400, 4800."; exit 1 ;;
+            esac
+            shift ;;
+        --size|-s)
+            case $2 in
+                a4) size="210x297" ;;
+                a5) size="148x210" ;;
+                b5) size="182x257" ;;
+                hagaki) size="100x148" ;;
+                hagaki2) size="200x148" ;;
+                *) echo "Error: Unsupported size. Supported sizes are: a4, a5, b5, hagaki, hagaki2."; exit 1 ;;
+            esac
+            shift
+            ;;
+        --progress)
+            progress="--progress" ;;
+        --list-devices|-L)
+            list_devices;
+            exit 0 ;;
+        --help|-h)
+            show_help;
+            exit 0 ;;
+        *)
+            echo "Unknown option: $1";
+            exit 1 ;;
+    esac
+    shift
+done
+
+if [ -z "$device" ]; then
+    echo "Error: --device option is required."
+    exit 1
+fi
+
+if [ -z "$output_file" ]; then
+    echo "Error: --device option is required."
+    exit 1
+fi
+
+if [ -e "$output_file" ]; then
+      echo "Error: Output file '$output_file' already exists. Please choose a different name."
+      exit 1
+fi
+
+
+# build command
+scanimage_cmd="scanimage"
+
+if [ -n "$device" ]; then
+    scanimage_cmd="$scanimage_cmd --device $device"
+fi
+
+if [ -n "$output_file" ]; then
+    scanimage_cmd="$scanimage_cmd --output-file $output_file"
+fi
+
+if [ -n "$format" ]; then
+    scanimage_cmd="$scanimage_cmd --format $format"
+fi
+
+if [ -n "$resolution" ]; then
+    scanimage_cmd="$scanimage_cmd --resolution $resolution"
+fi
+
+if [ -n "$size" ]; then
+    x=$(echo $size | cut -d'x' -f1)
+    y=$(echo $size | cut -d'x' -f2)
+    scanimage_cmd="$scanimage_cmd -l 0 -t 0 -x $x -y $y"
+fi
+
+scanimage_cmd="$scanimage_cmd $progress"
+
+
+echo "Running: $scanimage_cmd"
+eval $scanimage_cmd
+
