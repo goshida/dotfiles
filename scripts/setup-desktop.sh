@@ -6,6 +6,10 @@ _DOTFILES_ROOT=$( cd $( dirname $0 )/../ && pwd )
 
 _SETUP_TIMESTAMP=`date +%Y%m%d-%H%M%S`
 
+# pacman
+sudo cp -p /etc/pacman.conf /etc/pacman.conf.${_SETUP_TIMESTAMP}
+sudo install -o root -g root -m 644 -D ${_DOTFILES_ROOT}/etc/pacman.conf /etc/pacman.conf
+
 # sudo
 sudo cp -p /etc/sudoers /etc/sudoers.${_SETUP_TIMESTAMP}
 sudo sh -c "cat ${_DOTFILES_ROOT}/etc/sudoers | EDITOR=tee visudo"
