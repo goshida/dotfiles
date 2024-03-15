@@ -9,6 +9,10 @@ ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.bashrc ~/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.profile ~/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.xprofile ~/
 
+mkdir -p ~/.gnupg
+ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.gnupg/gpg.conf ~/.gnupg/
+ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.gnupg/gpg-agent.conf ~/.gnupg/
+
 mkdir -p ~/.config
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/nvim ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/screen ~/.config/

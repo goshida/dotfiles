@@ -13,6 +13,8 @@ test -r /usr/share/bash-completion/completions/git && . /usr/share/bash-completi
 test -r /usr/share/bash-completion/completions/gh && . /usr/share/bash-completion/completions/gh
 test -r /usr/share/bash-completion/completions/aws && . /usr/share/bash-completion/completions/aws
 
+export GPG_TTY=$(tty)
+
 eval "$(starship init bash)"
 
 alias sudo='sudo -v && sudo'
