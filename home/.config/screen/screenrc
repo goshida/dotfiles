@@ -18,3 +18,5 @@ defscrollback 65535
 
 altscreen on
 
+cjkwidth off
+
