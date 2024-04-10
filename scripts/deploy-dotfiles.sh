@@ -18,6 +18,7 @@ ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/nvim ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/screen ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/git ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/starship ~/.config/
+ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/mise ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/xfce4 ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/fcitx ~/.config/
 ln --backup=simple -sn ${_DOTFILES_ROOT}/home/.config/plank ~/.config/

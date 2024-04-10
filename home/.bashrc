@@ -17,6 +17,8 @@ export GPG_TTY=$(tty)
 
 eval "$(starship init bash)"
 
+eval "$(mise activate bash)"
+
 alias sudo='sudo -v && sudo'
 
 alias diff='diff --color=auto'

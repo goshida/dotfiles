@@ -132,6 +132,7 @@ community/pyenv
 community/packer
 community/aws-cli-v2
 community/python-cfn-lint
+aur/mise
 aur/aws-sam-cli
 aur/git-secrets
 
