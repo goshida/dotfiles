@@ -56,6 +56,11 @@ gpg --import ${working_dir}/${extracted_dir}/gpg/secret-keys.asc
 gpg --import ${working_dir}/${extracted_dir}/gpg/ownertrust
 echo-log info 'imported GPG data.'
 
+echo-log info 'deploying Git files.'
+mkdir -p ~/.config/git/
+cp -pb ${working_dir}/${extracted_dir}/git/config ~/.config/git/
+echo-log info 'deployed Git files.'
+
 echo-log info 'deploying AWS CLI files.'
 if [ -f ${working_dir}/${extracted_dir}/aws/config ]; then
   mkdir -p ~/.aws/

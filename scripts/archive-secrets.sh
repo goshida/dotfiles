@@ -47,6 +47,11 @@ gpg --export-ownertrust > ${working_dir}/${archive_dir}/gpg/ownertrust
 chmod 600 ${working_dir}/${archive_dir}/gpg/ownertrust
 echo-log info 'exported GPG data.'
 
+echo-log info 'copying Git files.'
+mkdir ${working_dir}/${archive_dir}/git
+cp -pr ~/.config/git/config ${working_dir}/${archive_dir}/git
+echo-log info 'copied Git files.'
+
 echo-log info 'copying AWS CLI files.'
 if [ -f ~/.aws/config ]; then
   mkdir ${working_dir}/${archive_dir}/aws
