@@ -9,7 +9,7 @@
 # Usage
 #   deploy-secrets.sh <archived-file.tar.gz>
 
-set -Ceux
+set -eux
 
 dotfiles_root=$( cd $( dirname $0 )/../ && pwd )
 
@@ -32,7 +32,7 @@ working_dir='/tmp'
 archive_file="$1"
 extracted_dir="$( basename ${archive_file} .tar.gz )"
 
-echo-log info 'deploy secret files from archive.'
+echo-log info 'start secret files deployment from archive.'
 
 
 echo-log info 'extracting archive file.'
@@ -70,12 +70,13 @@ else
   echo-log warn 'AWS CLI files not found in archive, skipped deploying.'
 fi
 
-echo-log ok 'deployed secret files from archive.'
-
 
 echo-log info 'deleting extracted files.'
 rm -rf ${working_dir}/${extracted_dir}
 echo-log info 'deleted extracted files.'
+
+
+echo-log ok 'complete secret files deployment from archive.'
 
 echo-log notice 'the archive file : ${archive_file} remains.'
 echo-log notice 'delete it manually once deployment is confirmed.'

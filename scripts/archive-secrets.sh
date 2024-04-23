@@ -6,7 +6,7 @@
 # Usage
 #   ./archive-secrets.sh
 
-set -Ceux
+set -eux
 
 dotfiles_root=$( cd $( dirname $0 )/../ && pwd )
 
@@ -20,13 +20,16 @@ echo-log() {
 
 # ----- main
 
-date="$(date '+%Y%m%d-%H%M%S')"
-working_dir='/tmp'
+date="$( date '+%Y%m%d-%H%M%S' )"
+working_dir="${dotfiles_root}/tmp"
 archive_dir="secrets-${date}"
 
 if [ -d ${working_dir}/${archive_dir} ] || [ -f ${working_dir}/${archive_dir}.tar.gz ]; then
   echo-log error "${working_dir}/${archive_dir} or ${working_dir}/${archive_dir}.tar.gz is exist. try again."
+  exit 1
 fi
+
+echo-log info 'start archiving secret files.'
 
 
 echo-log info 'copying secret files for archive.'
@@ -40,10 +43,10 @@ echo-log info 'copied SSH files'
 
 echo-log info 'exporting GPG data.'
 mkdir ${working_dir}/${archive_dir}/gpg
-gpg --export -a > ${working_dir}/${archive_dir}/gpg/public-keys.asc
-gpg --export-secret-keys -a > ${working_dir}/${archive_dir}/gpg/secret-keys.asc
+gpg --export -a --output ${working_dir}/${archive_dir}/gpg/public-keys.asc
+gpg --export-secret-keys --output ${working_dir}/${archive_dir}/gpg/secret-keys.asc
 chmod 600 ${working_dir}/${archive_dir}/gpg/secret-keys.asc
-gpg --export-ownertrust > ${working_dir}/${archive_dir}/gpg/ownertrust
+gpg --export-ownertrust --output ${working_dir}/${archive_dir}/gpg/ownertrust
 chmod 600 ${working_dir}/${archive_dir}/gpg/ownertrust
 echo-log info 'exported GPG data.'
 
