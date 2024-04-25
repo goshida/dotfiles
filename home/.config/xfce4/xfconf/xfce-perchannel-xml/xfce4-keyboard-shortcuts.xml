@@ -32,7 +32,6 @@
       <property name="&lt;Alt&gt;&lt;Super&gt;s" type="empty"/>
     </property>
     <property name="custom" type="empty">
-      <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
       <property name="&lt;Alt&gt;F3" type="empty">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
@@ -48,6 +47,7 @@
       <property name="&lt;Super&gt;f" type="string" value="exo-open --launch FileManager"/>
       <property name="&lt;Primary&gt;Print" type="string" value="xfce4-screenshooter -w"/>
       <property name="&lt;Super&gt;r" type="string" value="resize-window"/>
+      <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

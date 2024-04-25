@@ -30,15 +30,15 @@
       <property name="span-monitors" type="bool" value="false"/>
       <property name="mode" type="uint" value="0"/>
       <property name="output-name" type="string" value="Primary"/>
-      <property name="disable-struts" type="bool" value="false"/>
       <property name="length-adjust" type="bool" value="true"/>
       <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
-        <value type="double" value="0.137255"/>
-        <value type="double" value="0.172549"/>
-        <value type="double" value="0.188235"/>
-        <value type="double" value="0.888514"/>
+        <value type="double" value="0.13725499999999999"/>
+        <value type="double" value="0.17254900000000001"/>
+        <value type="double" value="0.18823500000000001"/>
+        <value type="double" value="0.88851400000000003"/>
       </property>
+      <property name="enable-struts" type="bool" value="true"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -70,10 +70,16 @@
         <value type="string" value="orage"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="networkmanager アプレット"/>
         <value type="string" value="task manager"/>
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="steam"/>
+        <value type="string" value="Keybase1"/>
+        <value type="string" value="chrome_status_icon_2"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="Fcitx"/>
         <value type="string" value="blueman"/>
       </property>
@@ -81,7 +87,8 @@
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chrome.instance104154;chrome.instance1286;chrome.instance1611;chrome.instance174681;chrome.instance1781;chrome.instance41813;chromium.instance1007;firefox.instance136531;firefox.instance213716"/>
+      <property name="mpris-players" type="string" value="chrome.instance104154;chrome.instance1286;chrome.instance1611;chrome.instance174681;chrome.instance1781;chrome.instance41813;chromium.instance1007;chromium.instance1023;chromium.instance106674;chromium.instance1072;chromium.instance1083;chromium.instance1185;chromium.instance1205;chromium.instance12497;chromium.instance129542;chromium.instance13378;chromium.instance1343;chromium.instance1404;chromium.instance141239;chromium.instance1551;chromium.instance1606;chromium.instance2017;chromium.instance20511;chromium.instance2090;chromium.instance2140;chromium.instance2750;chromium.instance3696;chromium.instance4186;chromium.instance4498;chromium.instance45017;chromium.instance4513;chromium.instance45545;chromium.instance5155;chromium.instance69328;chromium.instance69677;chromium.instance7115;chromium.instance7160;chromium.instance7214;chromium.instance7785;chromium.instance82379;firefox.instance10565;firefox.instance136531;firefox.instance213716;firefox.instance9045;vlc"/>
+      <property name="known-players" type="string" value="Chrome;firefox;Firefox ウェブ・ブラウザ;Vivaldi;vlc"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-10" type="string" value="notification-plugin"/>
@@ -93,6 +100,10 @@
       <property name="mode" type="uint" value="2"/>
       <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
       <property name="digital-format" type="string" value="%Y/%m/%d(%a) %H:%M"/>
+      <property name="digital-time-format" type="string" value="%Y/%m/%d(%a) %H:%M:%S"/>
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="Sans 10"/>
+      <property name="command" type="string" value=""/>
     </property>
     <property name="plugin-2" type="string" value="separator">
       <property name="style" type="uint" value="2"/>

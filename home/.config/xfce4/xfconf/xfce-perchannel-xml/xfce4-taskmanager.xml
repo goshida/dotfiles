@@ -23,4 +23,5 @@
   </property>
   <property name="prompt-terminate-task" type="bool" value="true"/>
   <property name="show-status-icon" type="bool" value="false"/>
+  <property name="window-maximized" type="bool" value="false"/>
 </channel>

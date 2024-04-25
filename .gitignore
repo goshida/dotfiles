@@ -2,11 +2,28 @@
 
 /home/.config/nvim/.netrwhist
 
-/home/.config/xfce4/desktop/*.rc
+/home/.config/xfce4/desktop/
+/home/.config/xfce4/helpers.rc
+/home/.config/xfce4/panel/
+/home/.config/xfce4/src/
+/home/.config/xfce4/terminal/accels.scm
+/home/.config/xfce4/xfce4-screenshooter
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/parole.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-appfinder.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-mime-settings.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screensaver.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screenshooter.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+/home/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-settings-manager.xml
 
-/tmp/*
+/tmp/
 !/tmp/.gitkeep
 
-/log/*
+/log/
 !/log/.gitkeep
 
