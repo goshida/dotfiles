@@ -2,6 +2,11 @@
 
 /home/.config/nvim/.netrwhist
 
+/home/.config/plank/dock1/launchers/
+!/home/.config/plank/dock1/launchers/desktop.dockitem
+!/home/.config/plank/dock1/launchers/thunar.dockitem
+!/home/.config/plank/dock1/launchers/xfce4-terminal.dockitem
+
 /home/.config/xfce4/desktop/
 /home/.config/xfce4/helpers.rc
 /home/.config/xfce4/panel/
