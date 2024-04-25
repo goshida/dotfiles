@@ -12,9 +12,9 @@ community/screen
 extra/wireguard-tools
 extra/nftables
 
-# japanese
-fcitx5-im
-community/fcitx5-mozc
+# input method module
+extra/fcitx5
+extra/fcitx5-mozc
 
 # cli-tools
 community/pacman-contrib

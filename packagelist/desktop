@@ -11,10 +11,9 @@ community/screen
 # network
 extra/nftables
 
-# japanese
-fcitx-im
-community/fcitx-mozc
-community/fcitx-configtool
+# input method module
+fcitx5-im
+extra/fcitx5-mozc
 
 # fonts
 community/otf-ipafont

@@ -32,12 +32,12 @@ echo-log info 'deployed ~/ files.'
 
 echo-log info 'deploying ~/.config/ files.'
 mkdir -p ~/.config
+ln --backup=simple -sn ${dotfiles_root}/home/.config/fcitx5 ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/nvim ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/screen ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/starship ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/mise ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/xfce4 ~/.config/
-ln --backup=simple -sn ${dotfiles_root}/home/.config/fcitx ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/plank ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/fontconfig ~/.config/
 ln --backup=simple -sn ${dotfiles_root}/home/.config/libinput-gestures.conf ~/.config/
