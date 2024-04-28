@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-set -Ceu
-
 
 # utility for dotfiles scripts
 # Usage
 #   echo-with-color.sh <COLOR> <MESSAGE>
+
+set -eu
 
 case $1 in
   black)

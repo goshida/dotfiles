@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -Ceu
 
 # utility for dotfiles script
 # Usage
@@ -8,6 +7,8 @@ set -Ceu
 # LOG_LEVEL
 #   INFO
 #   ERROR
+
+set -eu
 
 case $1 in
   error|ERROR)
