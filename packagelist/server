@@ -5,8 +5,8 @@ core/openssh
 core/man-db
 core/man-pages
 extra/git
-community/neovim
-community/screen
+extra/neovim
+extra/screen
 
 # network
 extra/wireguard-tools
@@ -17,9 +17,9 @@ extra/fcitx5
 extra/fcitx5-mozc
 
 # cli-tools
-community/pacman-contrib
+extra/pacman-contrib
 extra/bash-completion
-community/starship
+extra/starship
 core/inetutils
 core/curl
 extra/qrencode

@@ -5,8 +5,8 @@ core/openssh
 core/man-db
 core/man-pages
 extra/git
-community/neovim
-community/screen
+extra/neovim
+extra/screen
 
 # network
 extra/nftables
@@ -16,12 +16,12 @@ fcitx5-im
 extra/fcitx5-mozc
 
 # fonts
-community/otf-ipafont
+extra/otf-ipafont
 extra/noto-fonts
 extra/noto-fonts-cjk
 extra/noto-fonts-emoji
-community/adobe-source-han-sans-otc-fonts
-community/adobe-source-han-serif-otc-fonts
+extra/adobe-source-han-sans-otc-fonts
+extra/adobe-source-han-serif-otc-fonts
 aur/ttf-hackgen
 
 # audio
@@ -33,7 +33,7 @@ extra/alsa-utils
 extra/bluez
 extra/bluez-libs
 extra/bluez-utils
-community/blueman
+extra/blueman
 aur/bluez-firmware
 
 # bluetooth-audio
@@ -59,54 +59,54 @@ aur/tela-icon-theme
 # browser
 extra/firefox
 aur/google-chrome
-community/vivaldi
+extra/vivaldi
 aur/slack-desktop
 
 # rdp
-community/remmina
-community/freerdp
+extra/remmina
+extra/freerdp
 
 # vpn
 extra/networkmanager-openvpn
-community/xl2tpd
+extra/xl2tpd
 aur/ike-scan
 aur/libreswan
-community/networkmanager-l2tp
+extra/networkmanager-l2tp
 aur/networkmanager-libreswan
 
 # cli-tools
-community/pacman-contrib
+extra/pacman-contrib
 extra/gptfdisk
-community/exfat-utils
+extra/exfat-utils
 core/nfs-utils
 extra/lsof
 extra/zip
 extra/unzip
 extra/p7zip
-community/unarchiver
+extra/unarchiver
 extra/tree
-community/colordiff
+extra/colordiff
 extra/bind
-community/pwgen
-community/iftop
-community/nethogs
-community/screenfetch
+extra/pwgen
+extra/iftop
+extra/nethogs
+extra/screenfetch
 aur/downgrade
 aur/nkf
 extra/perl-image-exiftool
 extra/bash-completion
-community/github-cli
+extra/github-cli
 
 # gui-tools
-community/plank
-community/xarchiver
-community/xdotool
-community/peek
-community/code
-community/galculator
+extra/plank
+extra/xarchiver
+extra/xdotool
+extra/peek
+extra/code
+extra/galculator
 extra/vlc
-community/shutter
-community/wmctrl
+extra/shutter
+extra/wmctrl
 aur/xzoom
 aur/archlinux-artwork
 
@@ -114,28 +114,27 @@ aur/archlinux-artwork
 core/inetutils
 extra/rsync
 core/cronie
-community/jq
-community/yq
+extra/jq
+extra/yq
 extra/whois
 core/traceroute
 extra/gnu-netcat
 extra/tcpdump
-community/wireshark-cli
-community/wireshark-qt
+extra/wireshark-cli
+extra/wireshark-qt
 core/curl
 extra/wget
-community/starship
+extra/starship
 core/python
 extra/python-pip
-community/pyenv
-community/packer
-community/aws-cli-v2
-community/python-cfn-lint
+extra/pyenv
+extra/packer
+extra/python-cfn-lint
 aur/mise
 aur/aws-sam-cli
 aur/git-secrets
 
 # docker
-community/docker
-community/docker-compose
+extra/docker
+extra/docker-compose
 
