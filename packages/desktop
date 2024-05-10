@@ -1,3 +1,9 @@
+# install package list
+#
+# core/  : install package from core repository
+# extra/ : install package from extra repository
+# aur/   : install package from Arch User Repository
+
 # base
 core/vi
 core/sudo
@@ -12,7 +18,7 @@ extra/screen
 extra/nftables
 
 # input method module
-fcitx5-im
+extra/fcitx5-im # group
 extra/fcitx5-mozc
 
 # fonts
@@ -42,10 +48,10 @@ extra/pulseaudio-bluetooth
 
 # gui
 extra/xorg-server
-xorg-apps
+extra/xorg-apps # group
 extra/xorg-xinit
-xfce4
-xfce4-goodies
+extra/xfce4 # group
+extra/xfce4-goodies # group
 extra/xfce4-notifyd
 extra/xfce4-clipman-plugin
 extra/network-manager-applet
