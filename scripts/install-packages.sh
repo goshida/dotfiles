@@ -25,11 +25,15 @@ fi
 
 target="${1}"
 package_list_file="${dotfiles_root}/packages/${target}"
+pkgbuild_dir="${dotfiles_root}/packages/pkgbuilds"
 
 pretty_list="${dotfiles_root}/tmp/pretty_list"
 core_packages="${dotfiles_root}/tmp/core_packages"
 extra_packages="${dotfiles_root}/tmp/extra_packages"
 aur_packages="${dotfiles_root}/tmp/aur_packages"
+private_packages="${dotfiles_root}/tmp/private_packages"
+
+build_dir="${dotfiles_root}/tmp/build_dir"
 
 echo-log info 'start package installation.'
 
@@ -42,6 +46,7 @@ sed -e '/^#/d' -e '/^$/d' -e 's/\s*#.*$//g' ${package_list_file} > ${pretty_list
 grep '^core/' ${pretty_list} > ${core_packages} || true
 grep '^extra/' ${pretty_list} > ${extra_packages} || true
 grep '^aur/' ${pretty_list} > ${aur_packages} || true
+grep '^private/' ${pretty_list} > ${private_packages} || true
 
 wc -l ${core_packages} ${extra_packages} ${aur_packages}
 
@@ -60,11 +65,26 @@ else
   sudo pacman -S $( cat ${core_packages} ${extra_packages} | tr '\n' ' ' )
 fi
 
+mkdir -p ${build_dir}
+if [ -s ${private_packages} ]; then
+  echo-log info "install using local PKGBUILD files."
+  cd ${build_dir}
+  for pkg in $( sed 's/^private\///g' ${private_packages} | tr '\n' ' ' ); do
+    echo-log info "install ${pkg}"
+    cp "${pkgbuild_dir}/${pkg}/PKGBUILD" ${build_dir}/
+    makepkg -si
+    rm ${build_dir}/*
+  done
+  cd ${dotfiles_root}
+fi
+
 echo-log info 'clean up temporary files'
 rm ${pretty_list}
 rm ${core_packages}
 rm ${extra_packages}
 rm ${aur_packages}
+rm ${private_packages}
+rmdir ${build_dir}
 
 
 echo-log ok 'complete package installation.'

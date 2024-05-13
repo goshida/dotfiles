@@ -20,6 +20,7 @@ extra/nftables
 # input method module
 extra/fcitx5-im # group
 extra/fcitx5-mozc
+private/fcitx5-theme-dark-transparent
 
 # fonts
 extra/otf-ipafont
