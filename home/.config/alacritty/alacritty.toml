@@ -1,0 +1,30 @@
+# https://alacritty.org/config-alacritty.html
+
+import = [
+  "~/.config/alacritty/themes/citylights.toml",
+]
+
+shell = { program = "/bin/bash", args = [ "--login" ] }
+working_directory = "None"
+
+[env]
+TERM = "alacritty"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+decorations = "Full"
+opacity= 0.9
+startup_mode = "Windowed"
+dimensions = { columns = 140, lines = 40 }
+
+[scrolling]
+history = 65535
+multiplier = 3
+
+[font]
+normal = { family = "UDEV Gothic 35NFLG", style = "Regular" }
+bold = { family = "UDEV Gothic 35NFLG", style = "Bold" }
+italic = { family = "UDEV Gothic 35NFLG", style = "Italic" }
+bold_italic = { family = "UDEV Gothic 35NFLG", style = "Bold Italic" }
+size = 10
+

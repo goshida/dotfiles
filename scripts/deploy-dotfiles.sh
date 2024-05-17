@@ -65,6 +65,7 @@ create-link ${dotfiles_root}/home/.config/nvim ~/.config/
 create-link ${dotfiles_root}/home/.config/screen ~/.config/
 create-link ${dotfiles_root}/home/.config/starship ~/.config/
 create-link ${dotfiles_root}/home/.config/mise ~/.config/
+create-link ${dotfiles_root}/home/.config/alacritty ~/.config/
 create-link ${dotfiles_root}/home/.config/xfce4 ~/.config/
 create-link ${dotfiles_root}/home/.config/plank ~/.config/
 create-link ${dotfiles_root}/home/.config/fontconfig ~/.config/

@@ -30,6 +30,7 @@ extra/noto-fonts-emoji
 extra/adobe-source-han-sans-otc-fonts
 extra/adobe-source-han-serif-otc-fonts
 aur/ttf-hackgen
+aur/ttf-udev-gothic
 
 # audio
 extra/pulseaudio
@@ -105,6 +106,7 @@ extra/bash-completion
 extra/github-cli
 
 # gui-tools
+extra/alacritty
 extra/plank
 extra/xarchiver
 extra/xdotool
