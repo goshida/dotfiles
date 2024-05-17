@@ -55,14 +55,22 @@ cat ${pretty_list}
 
 if type yay > /dev/null ; then
   echo-log info 'install using yay.'
-  yay -S $( cat ${core_packages} ${extra_packages} ${aur_packages} | tr '\n' ' ' )
+  if yay -S $( cat ${core_packages} ${extra_packages} ${aur_packages} | tr '\n' ' ' ) ; then
+    echo-log info "package installation from core/extra/aur repository was successful."
+  else
+    echo-log warn "some packages installation failed, check the logs for details."
+  fi
 else
   if [ -s ${aur_packages} ]; then
     echo-log warn "skip installation of the following packages because yay command is not found."
     cat ${aur_packages}
   fi
   echo-log info 'install using pacman.'
-  sudo pacman -S $( cat ${core_packages} ${extra_packages} | tr '\n' ' ' )
+  if sudo pacman -S $( cat ${core_packages} ${extra_packages} | tr '\n' ' ' ) ; then
+    echo-log info "package installtion from core/extra repository was successful."
+  else
+    echo-log warn "some package installation failed, check the logs for details."
+  fi
 fi
 
 mkdir -p ${build_dir}
@@ -70,8 +78,8 @@ if [ -s ${private_packages} ]; then
   echo-log info "install using local PKGBUILD files."
   cd ${build_dir}
   for pkg in $( sed 's/^private\///g' ${private_packages} | tr '\n' ' ' ); do
-    echo-log info "install ${pkg}"
-    cp "${pkgbuild_dir}/${pkg}/PKGBUILD" ${build_dir}/
+    echo-log info "install ${pkg} using PKGBUILD"
+    cp "${pkgbuild_dir}/${pkg}/PKGBUILD" "${build_dir}"
     makepkg -si
     rm ${build_dir}/*
   done
