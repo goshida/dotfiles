@@ -40,7 +40,7 @@ tar -C ${working_dir} -zxvf ${archive_file}
 echo-log info 'extracted archive file.'
 
 echo-log info 'the archived files are below'
-tree ${working_dir}/${extracted_dir}
+find ${working_dir}/${extracted_dir}
 
 
 echo-log info 'deploy secret files.'
