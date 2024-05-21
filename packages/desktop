@@ -78,9 +78,8 @@ extra/freerdp
 extra/networkmanager-openvpn
 extra/xl2tpd
 aur/ike-scan
-aur/libreswan
+extra/strongswan
 extra/networkmanager-l2tp
-aur/networkmanager-libreswan
 
 # cli-tools
 extra/pacman-contrib
