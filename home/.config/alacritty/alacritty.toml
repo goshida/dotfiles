@@ -1,11 +1,3 @@
-# https://alacritty.org/config-alacritty.html
-
-import = [
-  "~/.config/alacritty/themes/citylights.toml",
-]
-
-shell = { program = "/bin/bash", args = [ "--login" ] }
-working_directory = "None"
 
 [env]
 TERM = "alacritty"
@@ -27,4 +19,16 @@ bold = { family = "UDEV Gothic 35NFLG", style = "Bold" }
 italic = { family = "UDEV Gothic 35NFLG", style = "Italic" }
 bold_italic = { family = "UDEV Gothic 35NFLG", style = "Bold Italic" }
 size = 10
+
+[general]
+working_directory = "None"
+# https://alacritty.org/config-alacritty.html
+
+import = [
+  "~/.config/alacritty/themes/citylights.toml",
+]
+
+[terminal]
+
+shell = { program = "/bin/bash", args = [ "--login" ] }
 
