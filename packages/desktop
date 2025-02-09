@@ -62,7 +62,7 @@ extra/lightdm-gtk-greeter
 aur/gamin
 aur/libinput-gestures
 aur/nordic-theme
-aur/tela-icon-theme
+#aur/tela-icon-theme
 
 # browser
 extra/firefox
@@ -116,6 +116,7 @@ extra/vlc
 extra/shutter
 extra/wmctrl
 aur/xzoom
+extra/archlinux-wallpaper
 aur/archlinux-artwork
 
 # development-tools
