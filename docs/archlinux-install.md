@@ -63,32 +63,37 @@ system clock
 timedatectl set-ntp true
 ```
 
-disk partitioning ( UEFI + GPT )
+disk partitioning ( LVM on LUKS )
 
 ```console
-# e.g.
-#  partition | mount point | filesystem
-#  /dev/sda1 | /boot       | ef00 ( EFI system partition )
-#  /dev/sda2 | /           | 8300 ( Linux filesystem )
-#  /dev/sda3 | /home       | 8300 ( Linux filesystem )
-
 lsblk
 
-sgdisk  -z /dev/sda
-sgdisk -n 1::+512M -t 1:ef00 -c 1:"EFI system partition ( /boot )" /dev/sda
-sgdisk -n 2::+64G -t 2:8300 -c 2:"Linux filesystem ( / )" /dev/sda
-sgdisk -n 3:: -t 2:8300 -c 3:"Linux filesystem ( /home )" /dev/sda
+# partitioning
+sgdisk -z /dev/nvme0n1
+sgdisk -n 1::+1G -t 1:ef00 -c 1:"EFI system partition ( /boot )" /dev/nvme0n1
+sgdisk -n 2:: -t 2:8e00 -c 2:"Linux LVM" /dev/nvme0n1
 
-mkfs.vfat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
-mkfs.ext4 /dev/sda3
+# LUKS
+cryptsetup luksFormat /dev/nvme0n1p2
+cryptsetup open --type luks /dev/nvme0n1p2 cryptlvm
 
-mount /dev/sda2 /mnt
+# LVM setup
+pvcreate /dev/mapper/cryptlvm
+vgcreate VG1 /dev/mapper/cryptlvm
+lvcreate -n root -L 128G VG1
+lvcreate -n home -L 512G VG1
+
+# filesystem
+mkfs.vfat -F32 /dev/nvme0n1p1
+mkfs.ext4 /dev/mapper/VG1-root
+mkfs.ext4 /dev/mapper/VG1-home
+
+# mount
+mount /dev/mapper/VG1-root
 mkdir /mnt/boot
 mkdir /mnt/home
-
-mount /dev/sda1 /mnt/boot
-mount /dev/sda3 /mnt/home
+mount /dev/nvme0n1p1 /mnt/boot
+mount /dev/mapper/VG1-home /mnt/home
 ```
 
 mirrorlist
@@ -106,6 +111,8 @@ pacstrap /mnt \
   linux \
   linux-lts \
   linux-firmware \
+  cryptsetup \
+  lvm2 \
   vi \
   sudo \
   networkmanager \
@@ -124,7 +131,7 @@ chroot
 arch-chroot /mnt
 ```
 
-etcetera
+clock, locale, hosts, root password
 
 ```console
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -153,11 +160,7 @@ vi /etc/hosts
 127.0.0.1 ${_HOSTNAME}.localdomain ${_HOSTNAME}
 -----
 
-mkinitcpio -P
-
 passwd
-
-systemctl enable NetworkManager.service
 ```
 
 pacman
@@ -205,10 +208,11 @@ title   Arch Linux
 linux /vmlinuz-linux
 initrd /amd-ucode.img
 initrd /initramfs-linux.img
-options root=PARTUUID="xxxx" rw noefi
+options luks.name="xxxx"=cryptlvm
+options root=/dev/mapper/VG1-root rw noefi
 __EOF__
 
-BLKID_ROOT=`blkid --match-tag PARTUUID ${_ROOT_PARTION} | awk -F\" '{print $2}'`
+BLKID_ROOT=`blkid --match-tag UUID ${_LUKS_PARTITION} | awk -F\" '{print $2}'`
 sed -i -e "s/xxxx/${BLKID_ROOT}/" /boot/loader/entries/archlinux.conf
 cat /boot/loader/entries/archlinux.conf
 
@@ -243,15 +247,20 @@ vi /etc/mkinitcpio.conf
 # when using intel CPU
 -----
 -MODULES=()
-+MODULES=(i915)
++MODULES=(tpm_tis? i915)
 -----
-# When using AMD CPU
+# when using AMD CPU
 -----
 -MODULES=()
-+MODULES=(amdgpu)
++MODULES=(tpm_tis? amdgpu)
+-----
+#HOOKS
+-----
+-HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems fsck)
++HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems fsck)
 -----
 
-mkinitcpio -p linux
+mkinitcpio -P
 ```
 
 sudo
@@ -262,6 +271,13 @@ EDITOR=vi visudo
 -# %wheel ALL=*ALL:ALL) ALL
 +%wheel ALL=*ALL:ALL) ALL
 -----
+```
+
+services
+
+```
+systemctl enable NetworkManager.service
+systemctl enable systemd-boot-update.service
 ```
 
 user
