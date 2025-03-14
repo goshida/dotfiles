@@ -64,6 +64,24 @@ aur/libinput-gestures
 aur/nordic-theme
 #aur/tela-icon-theme
 
+extra/sway
+extra/swaybg
+extra/swayidle
+extra/swaylock
+extra/wlr-randr
+extra/wl-clipboard
+extra/grim
+extra/slurp
+extra/wofi
+extra/mako
+extra/xdg-desktop-portal
+extra/xdg-desktop-portal-wlr
+extra/waybar
+extra/brightnessctl
+extra/ttf-font-awesome
+extra/qt5-wayland
+extra/qt6-wayland
+
 # browser
 extra/firefox
 aur/google-chrome

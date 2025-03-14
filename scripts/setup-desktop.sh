@@ -47,7 +47,7 @@ fi
 echo-log info 'configure LightDM.'
 if [ -f /usr/lib/systemd/system/lightdm.service ]; then
   cp --backup=simple -p /etc/X11/xinit/xinitrc /home/${USER}/.xinitrc
-  sudo systemctl enable lightdm.service
+#  sudo systemctl enable lightdm.service
   libinput-gestures-setup autostart
   echo-log info 'configured LightDM.'
 else
