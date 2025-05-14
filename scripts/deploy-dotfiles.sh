@@ -66,11 +66,15 @@ create-link ${dotfiles_root}/home/.config/screen ~/.config/
 create-link ${dotfiles_root}/home/.config/starship ~/.config/
 create-link ${dotfiles_root}/home/.config/mise ~/.config/
 create-link ${dotfiles_root}/home/.config/alacritty ~/.config/
+create-link ${dotfiles_root}/home/.config/sway ~/.config/
+create-link ${dotfiles_root}/home/.config/swaylock ~/.config/
+create-link ${dotfiles_root}/home/.config/waybar ~/.config/
 create-link ${dotfiles_root}/home/.config/xfce4 ~/.config/
 create-link ${dotfiles_root}/home/.config/plank ~/.config/
 create-link ${dotfiles_root}/home/.config/fontconfig ~/.config/
 create-link ${dotfiles_root}/home/.config/libinput-gestures.conf ~/.config/
 create-link ${dotfiles_root}/home/.config/locale.conf ~/.config/
+create-link ${dotfiles_root}/home/.config/mimeapps.list ~/.config/
 mkdir -p ~/.config/autostart
 create-link ${dotfiles_root}/home/.config/autostart/Plank.desktop ~/.config/autostart/
 create-link ${dotfiles_root}/home/.config/autostart/libinput-gestures.desktop ~/.config/autostart/
