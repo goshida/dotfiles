@@ -151,10 +151,6 @@ bindsym $mod+Print exec \
     | wl-copy
 
 
-### Background
-output * background /usr/share/backgrounds/archlinux/simple.png fill
-
-
 ### Status Bar
 bar {
   swaybar_command waybar
@@ -197,6 +193,9 @@ exec swayidle -w \
   timeout 1800 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"'
 
+
+### styles
+include ~/.config/sway/config.d/styles
 
 ### Etcetra
 include /etc/sway/config.d/*

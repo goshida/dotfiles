@@ -8,6 +8,7 @@ decorations = "Full"
 opacity= 0.9
 startup_mode = "Windowed"
 dimensions = { columns = 140, lines = 40 }
+padding = { x = 4, y = 4 }
 
 [scrolling]
 history = 65535

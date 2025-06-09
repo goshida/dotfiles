@@ -1,0 +1,28 @@
+
+### Background
+output * background /usr/share/backgrounds/archlinux/simple.png fill
+
+### window styles
+gaps outer 2
+gaps inner 3
+default_border pixel 3
+#default_border normal
+
+# set color (rgba)
+set $border-active    #1abc9cff
+set $border-inactive  #bcbcbcbb
+set $border-urgent    #e74c3cff
+set $bg-active        #2e4054ff
+set $bg-inactive      #2e405488
+set $bg-urgent        #e74c3c88
+set $text-light       #ecf0f1ff
+set $text-dark        #2c3e50ff
+set $indicator        #1a9cbcff
+
+# class                  border            bground       text         indicator     child_border
+client.focused           $border-active    $bg-active    $text-light  $indicator    $border-active
+client.focused_inactive  $border-inactive  $bg-inactive  $text-light  $bg-inactive  $border-inactive
+client.unfocused         $border-inactive  $bg-inactive  $text-light  $bg-inactive  $border-inactive
+client.urgent            $border-urgent    $bg-urgent    $text-light  $bg-urgent    $border-urgent
+client.placeholder       $border-inactive  $bg-inactive  $text-light  $bg-inactive  $border-inactive
+
