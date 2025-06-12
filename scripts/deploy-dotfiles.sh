@@ -69,6 +69,7 @@ create-link ${dotfiles_root}/home/.config/alacritty ~/.config/
 create-link ${dotfiles_root}/home/.config/sway ~/.config/
 create-link ${dotfiles_root}/home/.config/swaylock ~/.config/
 create-link ${dotfiles_root}/home/.config/waybar ~/.config/
+create-link ${dotfiles_root}/home/.config/mako ~/.config/
 create-link ${dotfiles_root}/home/.config/xfce4 ~/.config/
 create-link ${dotfiles_root}/home/.config/plank ~/.config/
 create-link ${dotfiles_root}/home/.config/fontconfig ~/.config/

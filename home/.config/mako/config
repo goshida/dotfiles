@@ -1,0 +1,45 @@
+max-history=5
+sort=-time
+
+layer=overlay
+default-timeout=900000
+
+font=sans-serif 11
+text-color=#e0e0e0ff
+markup=1
+format=<b><span size="12pt">%s</span></b>\n%b
+
+anchor=top-right
+background-color=#303030d0
+width=360
+height=120
+outer-margin=8
+margin=6
+padding=8,16,8,16
+border-size=3
+border-color=#a0a0a0ff
+border-radius=6
+
+icons=1
+icon-location=left
+icon-path=/usr/share/icons/Tela
+max-icon-size=16
+
+actions=1
+on-button-left=invoke-default-action
+on-button-right=dismiss
+on-button-middle=exec makoctl menu -n "$id" wofi -d -p 'Select action: '
+
+[urgency=low]
+border-color=#a0a0a0ff
+
+[urgency=normal]
+border-color=#b0d0a0ff
+
+[urgency=critical]
+background-color=#503030e0
+border-color=#e08080ff
+
+[mode=silent]
+invisible=1
+
