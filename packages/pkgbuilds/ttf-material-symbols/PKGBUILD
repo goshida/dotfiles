@@ -1,0 +1,36 @@
+# Maintainer: goshida
+pkgname=ttf-material-symbols
+_commit=941fa95d7f6084a599a54ca71bc565f48e7c6d9e
+pkgver=0.0.1.r${_commit::7}
+pkgrel=1
+epoch=
+pkgdesc="Google Material Symbols (Outlined, Rounded, Sharp)"
+arch=('any')
+url="https://github.com/google/material-design-icons"
+license=('Apache-2.0')
+groups=('private')
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=("${url}/raw/${_commit}/variablefont/MaterialSymbolsOutlined%5BFILL,GRAD,opsz,wght%5D.ttf"
+        "${url}/raw/${_commit}/variablefont/MaterialSymbolsRounded%5BFILL,GRAD,opsz,wght%5D.ttf"
+        "${url}/raw/${_commit}/variablefont/MaterialSymbolsSharp%5BFILL,GRAD,opsz,wght%5D.ttf")
+noextract=()
+sha256sums=('396974c0c6367d3fb7bdf66fed1372c6b05a48a23e48bc4f48919c66184fe011'
+            '4b7a9c0647fabf1ef8f109b88e4eef393c0018e72957a655c4b690c298bf565c'
+            '7ea86a158253c9b0a13ebf209bc9524faf4a6561a2fec4b7a022972b73fe37b1')
+validpgpkeys=()
+
+package() {
+  install -Dm644 "${srcdir}/MaterialSymbolsOutlined%5BFILL,GRAD,opsz,wght%5D.ttf" "${pkgdir}/usr/share/fonts/MaterialSymbols/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf"
+  install -Dm644 "${srcdir}/MaterialSymbolsRounded%5BFILL,GRAD,opsz,wght%5D.ttf" "${pkgdir}/usr/share/fonts/MaterialSymbols/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf"
+  install -Dm644 "${srcdir}/MaterialSymbolsSharp%5BFILL,GRAD,opsz,wght%5D.ttf" "${pkgdir}/usr/share/fonts/MaterialSymbols/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].ttf"
+}
+
