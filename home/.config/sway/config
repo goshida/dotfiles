@@ -2,6 +2,10 @@
 #   default : /etc/sway/config
 # Read `man 5 sway` for a complete reference.
 
+### include drop-in file
+include /etc/sway/config.d/*
+
+
 ### Variables
 set $mod Super
 
@@ -170,9 +174,6 @@ input type:keyboard {
   xkb_options ctrl:nocaps,altwin:swap_ralt_rwin
 }
 
-# displays ( separate configuration file )
-include ~/.config/sway/config.d/displays
-
 # touchpad
 input type:touchpad {
   #tap enabled
@@ -185,6 +186,9 @@ bindgesture swipe:3:left exec wtype -M alt -k right -m alt
 bindgesture swipe:3:right exec wtype -M alt -k left -m alt
 bindgesture swipe:4:left workspace prev
 bindgesture swipe:4:right workspace next
+
+# displays
+include ~/.config/sway/config.d/displays
 
 
 ### Idle configuration
@@ -203,6 +207,5 @@ include ~/.config/sway/config.d/applications
 
 
 ### Etcetra
-include /etc/sway/config.d/*
 #xwayland disable
 

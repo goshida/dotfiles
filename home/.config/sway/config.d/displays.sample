@@ -1,0 +1,15 @@
+# displays
+
+# Copy to "${XDG_CONFIG_HOME}/sway/config.d/displays" , set up and use.
+# Reflects adjustments made by `wdisplays`, etc. as needed.
+
+# Display information can be checked with the following commands
+# `swaymsg -t get_output | cat`
+
+# format sample:
+# output "{make} {model} {serial}" {
+#   mode 1920x1080@60.000Hz
+#   scale 1
+#   position 0 0
+# }
+
