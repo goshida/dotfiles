@@ -1,0 +1,23 @@
+for_window [window_role="pop-up"] {
+  floating enable
+}
+
+for_window [app_id="org.pulseaudio.pavucontrol"] {
+  floating enable
+  resize set 1280 720
+}
+
+for_window [app_id="thunar"] {
+  floating enable
+  resize set 1280 720
+}
+
+for_window [app_id="wdisplays"] {
+  floating enable
+  resize set 1280 720
+}
+
+for_window [app_id="galculator"] {
+  floating enable
+}
+

@@ -197,6 +197,11 @@ exec swayidle -w \
 ### styles
 include ~/.config/sway/config.d/styles
 
+
+### Application-specific configuration
+include ~/.config/sway/config.d/applications
+
+
 ### Etcetra
 include /etc/sway/config.d/*
 #xwayland disable
