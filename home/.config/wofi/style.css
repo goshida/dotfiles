@@ -1,0 +1,56 @@
+window {
+  /* The name of the window itself. */
+  font-family: sans-serif;
+  font-size: 13px;
+  color: rgb(255,255,255);
+  background-color: rgba(32,32,32,0.95);
+  border: 2px solid rgba(208,208,208,1);
+}
+
+#outer-box {
+  /* The name of the box that contains everything. */
+  background-color: transparent;
+  margin: 8px;
+}
+
+#input {
+  /* The name of the search bar. */
+  background-color: rgba(64,64,64,1);
+  margin: 4px;
+}
+
+#scroll {
+  /* The name of the scrolled window containing all of the entries. */
+  margin: 4px;
+}
+
+#inner-box {
+  /* The name of the box containing all of the entries. */
+}
+
+#img {
+  /* The name of all images in entries displayed in image mode. */
+  background-color: transparent;
+}
+
+#text {
+  /* The name of all the text in entries. */
+  background-color: transparent;
+  margin: 2px;
+}
+
+#entry {
+  /* The name of all entries. */
+  padding: 2px;
+}
+
+#entry:selected {
+  background-color: rgba(192,192,192,0.8);
+  color: rgb(0,0,0);
+}
+
+#expander-box {
+  /* The name of all boxes shown when expanding entries with multiple actions */
+  background-color: rgba(48,48,48,0.9);
+}
+
