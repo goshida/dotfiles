@@ -91,7 +91,7 @@
     "tooltip-format-disconnected": "Network:\nDisconnected"
   },
   "cpu": {
-    "format": "{usage}%  ",
+    "format": "{usage}%  ",
     "interval": 10
   },
   "memory": {
