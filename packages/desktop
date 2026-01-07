@@ -78,7 +78,7 @@ extra/xdg-desktop-portal
 extra/xdg-desktop-portal-wlr
 extra/waybar
 extra/brightnessctl
-extra/ttf-font-awesome
+extra/otf-font-awesome
 extra/qt5-wayland
 extra/qt6-wayland
 
@@ -163,5 +163,6 @@ aur/git-secrets
 
 # docker
 extra/docker
+extra/docker-buildx
 extra/docker-compose
 
