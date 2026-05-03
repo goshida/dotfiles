@@ -37,6 +37,9 @@ extra/pulseaudio
 extra/pavucontrol
 extra/alsa-utils
 
+# thunderbolt
+extra/bolt
+
 # bluetooth
 extra/bluez
 extra/bluez-libs
