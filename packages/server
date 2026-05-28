@@ -4,6 +4,7 @@ core/sudo
 core/openssh
 core/man-db
 core/man-pages
+extra/ntp
 extra/git
 extra/neovim
 extra/screen
