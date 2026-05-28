@@ -46,6 +46,14 @@ sudo nmcli connection modify wired-static ifname ${public_if}
 sudo nmcli connection up wired-static
 echo-log info 'configure static address.'
 
+echo-log info 'configure ntpd.'
+if [ -f /usr/lib/systemd/system/ntpd.service ]; then
+  sudo systemctl enable ntpd.service
+  echo-log info 'configured ntpd.'
+else
+  echo-log warn 'ntpd not found, skipped configuration.'
+fi
+
 echo-log info 'configure nftables.'
 if [ -f /usr/lib/systemd/system/nftables.service ]; then
   sudo cp -p /etc/nftables.conf /etc/nftables.conf.${setup_date}

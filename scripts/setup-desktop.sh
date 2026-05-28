@@ -34,6 +34,14 @@ sudo cp -p /etc/sudoers /etc/sudoers.${setup_date}
 sudo sh -c "cat ${dotfiles_root}/etc/sudoers | EDITOR=tee visudo"
 echo-log info 'configured sudo.'
 
+echo-log info 'configure ntpd.'
+if [ -f /usr/lib/systemd/system/ntpd.service ]; then
+  sudo systemctl enable ntpd.service
+  echo-log info 'configured ntpd.'
+else
+  echo-log warn 'ntpd not found, skipped configuration.'
+fi
+
 echo-log info 'configure nftables.'
 if [ -f /usr/lib/systemd/system/nftables.service ]; then
   sudo cp -p /etc/nftables.conf /etc/nftables.conf.${setup_date}
